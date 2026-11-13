@@ -2,10 +2,10 @@ window.SITE_CONTENT = {
   name: "Alexander Minagar",
   intro: "A collection of film, language, and things built for the browser.",
   film: {
-    title: "A college short film",
+    title: "Freshman Themes",
     eyebrow: "01 / FILM",
     description: "A short film I worked on in college.",
-    year: "",
+    year: "2026",
     runtime: "",
     role: "",
     synopsis: "Tufts Film and Media Studies Directed Study under Professor Howard Woolf, Fall 2026",
