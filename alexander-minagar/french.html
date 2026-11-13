@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the grammar of a French sentence with a Python-powered language analyzer by Alexander Minagar.">
+  <meta name="theme-color" content="#214e3e">
+  <title>French, Unpacked | Alexander Minagar</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/french.css">
+  <script src="assets/js/site-content.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/french.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header"><div class="container nav-inner"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">AM</span><span class="brand-name" data-site-name>Alexander Minagar</span></a><nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#projects">Projects</a></nav></div></header>
+  <main class="container" id="main-content">
+    <section class="page-intro" aria-labelledby="french-title">
+      <a class="back-link" href="index.html#projects">← All projects</a>
+      <p class="eyebrow">03 / Language & code</p>
+      <h1 class="display-title" id="french-title">French, <em>unpacked.</em></h1>
+      <p class="intro-text">Look inside a sentence. Explore its words, their forms, and the relationships that bring them together.</p>
+    </section>
+    <section class="analyzer-input" aria-labelledby="input-title">
+      <div class="analyzer-input-heading"><div><p class="eyebrow">Start with a sentence</p><h2 id="input-title">What would you like to explore?</h2></div><span class="pill">French → Grammar</span></div>
+      <form id="analyzer-form">
+        <div class="field-label-row"><label for="french-text">Your French sentence</label><span id="character-count">0 / 500</span></div>
+        <textarea id="french-text" name="text" rows="3" maxlength="500" required lang="fr" spellcheck="true" placeholder="La petite fille mange une pomme." aria-describedby="input-help character-count"></textarea>
+        <div class="analyzer-submit-row"><p id="input-help">Try a complete French sentence, up to 500 characters.</p><button class="button button--primary" id="analyze-button" type="submit"><span id="analyze-button-label">Analyze sentence</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div>
+      </form>
+      <div class="sentence-examples"><span>Or try an example:</span><button type="button" data-example="La petite fille mange une pomme.">A simple sentence</button><button type="button" data-example="Nous avons visité le musée hier.">The past tense</button><button type="button" data-example="Je ne comprends pas cette question.">A negative sentence</button></div>
+      <p id="analyzer-status" class="analyzer-status" role="status" aria-live="polite"></p>
+      <div id="analyzer-error" class="analyzer-error" role="alert" hidden></div>
+      <noscript><p class="noscript-message">Enable JavaScript to send a sentence to the analyzer and display its results.</p></noscript>
+    </section>
+    <section class="analyzer-empty" id="analyzer-empty" aria-label="How the analysis works"><div class="empty-illustration" aria-hidden="true"><span class="token-pron">Elle</span><span class="token-verb">lit</span><span class="token-det">un</span><span class="token-noun">livre.</span></div><h2>Every word has a role.</h2><p>Your analysis will appear here. Select a word to inspect its grammar, or read the complete breakdown in the table.</p></section>
+    <section class="analysis-results" id="analysis-results" hidden aria-labelledby="results-title">
+      <div class="results-topline"><div><p class="eyebrow">Your sentence, explored</p><h2 id="results-title" tabindex="-1">The breakdown.</h2></div><p id="analysis-summary"></p></div>
+      <p class="analysis-original" id="analysis-original" lang="fr"></p>
+      <div class="token-strip" id="token-strip" aria-label="Select a word to inspect"></div>
+      <div class="analysis-legend"><span><i class="token-noun"></i>Nouns</span><span><i class="token-verb"></i>Verbs</span><span><i class="token-pron"></i>Pronouns</span><span><i class="token-det"></i>Determiners</span><span><i class="token-adj"></i>Adjectives</span><span><i class="token-other"></i>Other</span></div>
+      <div class="word-inspector" id="word-inspector" aria-live="polite"></div>
+      <div class="table-topline"><h3>Word-by-word analysis</h3><span>Scroll across on smaller screens</span></div>
+      <div class="analysis-table-wrap" tabindex="0" role="region" aria-label="Grammatical breakdown table, horizontally scrollable"><table class="analysis-table"><caption class="visually-hidden">Each word's base form, word class, grammatical role, related word, and grammatical features</caption><thead><tr><th scope="col">Word</th><th scope="col">Base form</th><th scope="col">Word class</th><th scope="col">Role</th><th scope="col">Related word</th><th scope="col">Features</th></tr></thead><tbody id="analysis-table-body"></tbody></table></div>
+      <div class="analysis-notes" id="analysis-notes"></div>
+      <button class="button button--outline" type="button" id="new-sentence-button">Explore another sentence <span aria-hidden="true">↑</span></button>
+    </section>
+    <section class="analyzer-explanation" aria-labelledby="how-title"><div><p class="eyebrow">Behind the interaction</p><h2 id="how-title">A little more context.</h2></div><div><p>This project uses a Python function and spaCy’s French language model to identify word classes, base forms, grammatical features, and dependency relationships.</p><p>A word’s class tells you what kind of word it is. Its role describes how it connects to the rest of the sentence. Automatic analysis can be imperfect, especially with ambiguous or unusual phrasing.</p><p class="analyzer-reference">Built with <a href="https://spacy.io/models/fr" target="_blank" rel="noopener noreferrer">spaCy’s French model ↗</a>. The app does not keep a sentence history.</p></div></section>
+    <div class="project-next"><p>Keep exploring</p><a class="button button--outline" href="flashcards.html">Study with Recall <span aria-hidden="true">→</span></a></div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-year>2026</span> <span data-site-name>Alexander Minagar</span></p><div class="footer-links"><a href="index.html">Home</a><a href="index.html#projects">Projects</a></div></div></footer>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Start here | Alexander Minagar</title>
+  <style>
+    :root{color-scheme:light;--paper:#f6f4ed;--ink:#202b26;--green:#214e3e;--muted:#59665d;--line:#d9ddd3;--lime:#e4ebc4}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--green);text-underline-offset:.2em}a:focus-visible,summary:focus-visible{outline:3px solid #b27724;outline-offset:4px}header,main,footer{max-width:1040px;margin:auto;padding-left:28px;padding-right:28px}header{padding-top:56px;padding-bottom:40px}.eyebrow{margin:0 0 14px;font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}h1,h2,h3{line-height:1.15;margin-top:0}h1{font:normal clamp(2.7rem,7vw,5rem)/1.03 Georgia,serif;letter-spacing:-.04em;margin-bottom:20px}h2{font:normal clamp(1.8rem,4vw,2.5rem)/1.15 Georgia,serif;letter-spacing:-.025em}h3{font-size:1.05rem;margin-bottom:8px}.lead{max-width:720px;font-size:1.15rem;color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:28px;font-size:.9rem}.callout{border:1px solid var(--line);border-left:4px solid var(--green);background:#fffef9;padding:20px 24px;border-radius:8px;margin:24px 0}.callout p{margin:0}.callout p+p{margin-top:10px}.steps{counter-reset:step}.step{position:relative;padding:38px 0 38px 64px;border-top:1px solid var(--line);counter-increment:step}.step:before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:38px;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;color:var(--green);background:var(--lime);font-size:.85rem;font-weight:700}.step p{max-width:800px}.step li{margin:9px 0}code{font: .88em ui-monospace,SFMono-Regular,Consolas,monospace;background:#e9ece3;padding:.12em .35em;border-radius:4px;overflow-wrap:anywhere}pre{background:#203e31;color:#f5f4eb;padding:20px;border-radius:10px;overflow-x:auto;line-height:1.7}pre code{color:inherit;background:none;padding:0;white-space:pre}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:20px 0}table{border-collapse:collapse;width:100%;font-size:.94rem}th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--lime);color:var(--green);font-size:.8rem;letter-spacing:.025em}tr:last-child td{border-bottom:0}td:first-child{font-weight:600;width:29%}.small{font-size:.88rem;color:var(--muted)}.button{display:inline-block;padding:10px 18px;background:var(--green);color:#fff;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600;margin-top:8px}.file-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}.file-card{background:#fffef9;border:1px solid var(--line);border-radius:12px;padding:18px}.file-card p{margin:7px 0 0;font-size:.92rem;color:var(--muted)}details{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:18px 0;background:#fffef9}summary{cursor:pointer;font-weight:650;color:var(--green)}details[open] summary{margin-bottom:16px}.source-list{font-size:.88rem;columns:2;column-gap:32px}.source-list li{break-inside:avoid}footer{padding-top:28px;padding-bottom:40px;border-top:1px solid var(--line);font-size:.83rem;color:var(--muted)}@media(max-width:640px){header,main,footer{padding-left:20px;padding-right:20px}.step{padding-left:0;padding-top:76px}.step:before{top:24px}.file-list{grid-template-columns:1fr}.source-list{columns:1}th,td{padding:11px;min-width:110px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{body{background:white;font-size:10pt}header{padding-top:12px}nav,.button{display:none}.step{break-inside:auto}.callout,table,.file-card,pre{break-inside:avoid}details{display:block}.source-list{columns:1}a{color:inherit}pre{white-space:pre-wrap;color:#202b26;background:#eee}h2{break-after:avoid}}
+  </style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Alexander Minagar / setup guide</p>
+    <h1>Your portfolio,<br>ready to publish.</h1>
+    <p class="lead">Use this guide to put the complete site on Vercel, add your film, and keep the project up to date. GitHub stores the files; Vercel runs the website and French analysis.</p>
+    <nav aria-label="Guide sections"><a href="#files">The files</a><a href="#github">Upload</a><a href="#vercel">Deploy</a><a href="#film">Add your film</a><a href="#local">Local preview</a><a href="#help">Troubleshooting</a></nav>
+  </header>
+  <main>
+    <div class="callout"><p>The app is complete enough to try with the supplied decks. Your actual film and production details still need to be added. You can preview the Home and Flashcards pages immediately; the French analyzer needs Vercel or the included Python server.</p></div>
+    <div class="steps">
+      <section class="step" id="files">
+        <h2>Unzip and find the site.</h2>
+        <p>Extract the download. Open the folder that directly contains <code>index.html</code>. Keep its folders together: the page links depend on those paths.</p>
+        <div class="file-list">
+          <div class="file-card"><h3>Home</h3><code>index.html</code><p>Introduction and three project cards. The Projects navigation link jumps to these cards.</p></div>
+          <div class="file-card"><h3>Film</h3><code>film.html</code><p>A film page with a player area and editable synopsis and credits.</p></div>
+          <div class="file-card"><h3>Flashcards</h3><code>flashcards.html</code><p>Three preloaded decks, each with 12 cards. No account, editor, or saved progress.</p></div>
+          <div class="file-card"><h3>French analyzer</h3><code>french.html</code><p>A sentence-analysis interface connected to <code>api/analyze.py</code>.</p></div>
+        </div>
+        <p>Also keep <code>assets</code>, <code>api</code>, <code>requirements.txt</code>, <code>pyproject.toml</code>, the supplied Python version files, and <code>vercel.json</code>. These are part of the complete project.</p>
+        <a class="button" href="index.html">Preview the home page</a>
+      </section>
+      <section class="step" id="github">
+        <h2>Put the files in GitHub.</h2>
+        <ol>
+          <li>Sign in to <a href="https://github.com">GitHub</a> and choose New repository.</li>
+          <li>Name it <code>alexander-minagar</code>, choose Public, enable the README, and create it.</li>
+          <li>Choose Add file → Upload files. Drag in the extracted files plus the <code>assets</code> and <code>api</code> folders.</li>
+          <li>Enter a message such as <code>Add portfolio website</code>, then commit to <code>main</code>.</li>
+        </ol>
+        <div class="callout"><p>Upload the contents of the extracted folder. The repository's first file list must show <code>index.html</code>, <code>requirements.txt</code>, <code>pyproject.toml</code>, and <code>vercel.json</code>. Uploading only the ZIP or an extra enclosing folder prevents the default setup from finding the site.</p></div>
+        <p>The supplied README can replace GitHub's starter README. No GitHub Pages setting is needed because Vercel will host this project.</p>
+      </section>
+      <section class="step" id="vercel">
+        <h2>Import the project into Vercel.</h2>
+        <ol>
+          <li>Open <a href="https://vercel.com/new">vercel.com/new</a>. Sign in or create your personal account and choose the free Hobby plan.</li>
+          <li>Connect GitHub. Grant Vercel access to the <code>alexander-minagar</code> repository and select Import beside it.</li>
+          <li>Use the settings below. Keep the provided deployment files in the repository.</li>
+          <li>Select Deploy. Wait for Ready, then open the production address shown by Vercel.</li>
+        </ol>
+        <div class="table-wrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Use this value</th></tr></thead><tbody>
+          <tr><td>Framework Preset</td><td>Other</td></tr>
+          <tr><td>Root Directory</td><td>Repository root: <code>./</code></td></tr>
+          <tr><td>Build Command</td><td>Empty. If an Override switch appears, turn it on and leave the command blank.</td></tr>
+          <tr><td>Output Directory</td><td>Leave at the default. Do not choose <code>dist</code>, <code>build</code>, or <code>public</code>.</td></tr>
+          <tr><td>Install Command</td><td>Default. The Python runtime installs the supplied requirements.</td></tr>
+          <tr><td>Environment Variables</td><td>None required. There is no AI API key to enter.</td></tr>
+        </tbody></table></div>
+        <p>The address will look something like <code>https://alexander-minagar.vercel.app</code>. That is an example; use the exact URL Vercel assigns to your project.</p>
+        <p class="small">Hobby is intended for personal, noncommercial use and has usage limits. You do not need Pro to enable the basic features included here. See <a href="https://vercel.com/pricing">Vercel's current plans</a>.</p>
+      </section>
+      <section class="step" id="check">
+        <h2>Try the complete experience.</h2>
+        <p>Open each of the three project links from Home. In Flashcards, select a deck, reveal answers, navigate between cards, and finish a session. The end screen offers repeat and shuffle options, another deck, the French analyzer, and Home.</p>
+        <p>The French page accepts up to 500 characters and sends the sentence to this site's Python endpoint. Enter this example and run the analysis:</p>
+        <pre lang="fr"><code>Le chat mange une pomme.</code></pre>
+        <div class="table-wrap"><table><thead><tr><th scope="col">Word</th><th scope="col">Expected role in this example</th></tr></thead><tbody><tr><td lang="fr">chat</td><td>Subject: who performs the action</td></tr><tr><td lang="fr">mange</td><td>Verb: the action</td></tr><tr><td lang="fr">pomme</td><td>Direct object: what is eaten</td></tr></tbody></table></div>
+        <p>The result table labels individual words. The app uses spaCy's <code>fr_core_news_md</code> 3.8.0 model. Apostrophe variants are normalized internally for parsing while your original sentence is displayed. Automatic labels can still be wrong, even for short sentences.</p>
+        <p>The first request after inactivity can take longer while the Python function loads the model. A placeholder on the Film page is expected until you add your footage.</p>
+      </section>
+      <section class="step" id="film">
+        <h2>Make the film page yours.</h2>
+        <p>Open <code>assets/js/site-content.js</code>. Edit it in a text editor, or open the file on GitHub and select the pencil icon. Replace values while preserving the quotation marks, commas, and braces.</p>
+        <div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Add your information</th></tr></thead><tbody>
+          <tr><td><code>name</code>, <code>intro</code></td><td>Your name and brief introduction.</td></tr>
+          <tr><td><code>film.title</code>, <code>description</code></td><td>The film's real title and short description.</td></tr>
+          <tr><td><code>year</code>, <code>runtime</code>, <code>role</code></td><td>Its year, running time, and your specific contribution.</td></tr>
+          <tr><td><code>synopsis</code>, <code>credits</code></td><td>A synopsis and actual production credits.</td></tr>
+          <tr><td><code>videoUrl</code></td><td>Your YouTube/Vimeo URL, or <code>assets/media/film.mp4</code> for a local file.</td></tr>
+          <tr><td><code>poster</code></td><td>An image path, for example <code>assets/images/my-film-poster.jpg</code>.</td></tr>
+          <tr><td><code>captionsUrl</code></td><td>An optional WebVTT captions file for a directly hosted video.</td></tr>
+        </tbody></table></div>
+        <p>For the simplest video setup, upload the film to your own YouTube or Vimeo account, allow embedding, and set <code>videoUrl</code> to its link. Direct MP4 playback is also supported, but a video platform is more convenient for large footage.</p>
+        <div class="callout"><p>Your film, title, synopsis, role, credits, and production dates were not supplied. The starter text identifies that content as pending. Replace it with real details before presenting the film case study as finished.</p></div>
+      </section>
+      <section class="step" id="cards">
+        <h2>Keep the flashcards simple.</h2>
+        <p>The app already contains Film language, French essentials, and Web basics. Visitors choose a deck and study immediately. They do not enter cards, choose settings, create accounts, or save progress.</p>
+        <p>If you later want different cards, edit <code>assets/js/decks.js</code> as the site owner. Each deck's <code>cards</code> array contains objects with <code>question</code>, <code>answer</code>, and an optional <code>note</code>:</p>
+        <pre><code>{
+  question: "What does bonjour mean?",
+  answer: "Hello or good day.",
+  note: "A common French greeting."
+}</code></pre>
+        <p>Preserve the surrounding array structure and keep deck IDs unique. Counts update from the data. This app is a simple flashcard project; it does not import Anki packages or perform spaced-repetition scheduling.</p>
+      </section>
+      <section class="step" id="updates">
+        <h2>Publish your later changes.</h2>
+        <p>Edit the relevant file on GitHub, or upload your changed local files to the same paths, and commit to <code>main</code>. Vercel's Git connection will create a new deployment. Check for Ready before reloading the production website.</p>
+        <p>Keep image and script filenames consistent, including capitalization. Preserve the <code>api</code> folder and dependency files when uploading an updated copy.</p>
+      </section>
+      <section class="step" id="local">
+        <h2>Optional: run it on your computer.</h2>
+        <p>Double-clicking <code>index.html</code> previews the pages and flashcards. To use French analysis locally, install Python 3.12 and open a terminal in the extracted project folder.</p>
+        <details><summary>macOS or Linux commands</summary><pre><code>python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python serve.py</code></pre></details>
+        <details><summary>Windows PowerShell commands</summary><pre><code>py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe serve.py</code></pre></details>
+        <p>Open <code>http://127.0.0.1:8000</code>, or the local URL printed in the terminal. Keep the terminal open while testing; press Ctrl+C to stop the server. Installing dependencies requires internet access to download spaCy and its French model.</p>
+        <p class="small">The local virtual environment, <code>.venv</code>, belongs on your computer. Do not include it in a GitHub upload.</p>
+      </section>
+      <section class="step" id="help">
+        <h2>If something needs attention.</h2>
+        <details><summary>The home page returns 404</summary><p>Check that <code>index.html</code> appears directly in the repository root. In Vercel, use Framework Other, Root <code>./</code>, and the default Output Directory. Confirm the latest deployment is Ready.</p></details>
+        <details><summary>The site has missing styles or images</summary><p>Upload the complete <code>assets</code> folder with its nested folders. Paths and filename capitalization must match the HTML and configuration.</p></details>
+        <details><summary>The French analyzer cannot connect</summary><p>A page opened as <code>file://</code> has no Python endpoint. Use your Vercel URL or the local server. On Vercel, confirm <code>api/analyze.py</code>, <code>requirements.txt</code>, and <code>vercel.json</code> were included. Open the deployment's runtime logs for the actual error.</p></details>
+        <details><summary>Python or the French model fails to install</summary><p>Open Vercel's build log and locate the first installation error. Keep the supplied Python version and requirement files intact. A model-download error may indicate the wheel URL was unreachable; confirm that dependency can be downloaded before retrying. Do not substitute a different model package without checking compatibility.</p></details>
+        <details><summary>The film will not play</summary><p>Check the video URL and the provider's embedding/privacy settings. For an MP4, upload the actual file and make sure its name and path match <code>videoUrl</code>. The initial placeholder does not contain your film.</p></details>
+        <details><summary>The published site still shows old content</summary><p>Check that you committed the change to <code>main</code> and that Vercel deployed that commit successfully. Then reload the production URL, not an older preview URL.</p></details>
+        <h3>Official references</h3>
+        <ul class="source-list">
+          <li><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">Uploading to GitHub</a></li>
+          <li><a href="https://vercel.com/docs/git">Vercel Git deployments</a></li>
+          <li><a href="https://vercel.com/docs/builds/configure-a-build">Vercel build settings</a></li>
+          <li><a href="https://vercel.com/docs/functions/runtimes/python/api-directory">Python functions in /api</a></li>
+          <li><a href="https://vercel.com/docs/plans/hobby">Vercel Hobby limits</a></li>
+          <li><a href="https://spacy.io/models/fr">spaCy French models</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer>Alexander Minagar · Setup guide · Checked November 13, 2026. Hosting interfaces and plan limits may change.</footer>
+</body>
+</html>

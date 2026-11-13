@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "functions": {
+    "api/analyze.py": {
+      "maxDuration": 30,
+      "excludeFiles": "{assets/**,tests/**,*.html,*.md,START_HERE.txt,serve.py,.venv/**,venv/**,.git/**,**/__pycache__/**}"
+    }
+  }
+}

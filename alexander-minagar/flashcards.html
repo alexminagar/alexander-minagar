@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recall: a simple flashcard app by Alexander Minagar. Choose a preloaded deck and study one card at a time.">
+  <meta name="theme-color" content="#214e3e">
+  <title>Flashcards | Alexander Minagar</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/flashcards.css">
+  <script src="assets/js/site-content.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/decks.js" defer></script>
+  <script src="assets/js/flashcards.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Alexander Minagar home"><span class="brand-mark" aria-hidden="true">AM</span><span class="brand-name" data-site-name>Alexander Minagar</span></a>
+      <nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#projects">Projects</a></nav>
+    </div>
+  </header>
+  <main id="main-content" class="container">
+    <section class="page-intro recall-intro" aria-labelledby="page-title">
+      <a class="back-link" href="index.html#projects"><svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m9 5-5 5 5 5M4 10h12"/></svg> All projects</a>
+      <div class="recall-intro-row">
+        <div>
+          <p class="eyebrow">02 / A small study tool</p>
+          <h1 class="display-title" id="page-title">A little more <em>Recall.</em></h1>
+          <p class="intro-text">Preloaded flashcards, one deck at a time. Pick a subject, think it through, and reveal the answer.</p>
+        </div>
+        <div class="recall-seal" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><rect x="12" y="10" width="34" height="43" rx="4" transform="rotate(-9 12 10)"/><rect x="20" y="13" width="34" height="43" rx="4"/><path d="M29 27h16M29 34h12M29 41h8"/></svg></div>
+      </div>
+    </section>
+
+    <section class="recall-app" aria-label="Recall flashcard app">
+      <div class="recall-app-top"><span class="recall-wordmark"><span class="recall-dot" aria-hidden="true"></span> Recall</span><span class="recall-fresh">A fresh start every session.</span></div>
+      <noscript><p class="noscript-message">Turn on JavaScript in your browser to choose a deck and study the flashcards.</p></noscript>
+
+      <div id="deck-picker" class="recall-picker">
+        <div class="recall-picker-heading"><div><p class="eyebrow">Your next small discovery</p><h2 id="deck-picker-title" tabindex="-1">What are we learning?</h2></div><p>Choose a deck to get started.</p></div>
+        <div id="deck-grid" class="recall-deck-grid"></div>
+        <p id="deck-error" class="recall-error" role="status" hidden>No decks are available right now. Please return to the home page and try again later.</p>
+        <p class="recall-picker-note">No setup. No timer. Just a question and a moment to think.</p>
+      </div>
+
+      <div id="study-panel" class="recall-study" hidden>
+        <div class="recall-study-top"><div><p class="eyebrow" id="study-category"></p><h2 id="study-deck-title"></h2></div><button class="button button--text" id="change-deck" type="button">Change deck <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M5 5h10v10"/></svg></button></div>
+        <div class="recall-progress-row"><span id="study-count">Card 1 of 12</span><span id="study-order">In order · At your pace</span></div>
+        <progress class="recall-progress" id="study-progress" value="1" max="12" aria-label="Position in deck"></progress>
+        <section class="recall-card" id="study-card" tabindex="0" aria-labelledby="card-question" aria-describedby="study-keyboard-help">
+          <div class="recall-card-top"><span id="card-side">Question</span><span class="recall-card-number" id="card-number">01</span></div>
+          <h3 id="card-question"></h3>
+          <p class="recall-think" id="card-think">Take a moment. What comes to mind?</p>
+          <div class="recall-answer" id="answer-panel" hidden>
+            <p class="recall-answer-label">Answer</p>
+            <p class="recall-answer-text" id="card-answer"></p>
+            <p class="recall-card-note" id="card-note" hidden></p>
+          </div>
+          <button class="button button--primary recall-reveal" id="reveal-answer" type="button" aria-controls="answer-panel" aria-expanded="false">Reveal answer <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M5 5h10v10"/></svg></button>
+        </section>
+        <div class="recall-navigation"><button class="button button--outline" type="button" id="previous-card"><svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m9 5-5 5 5 5M4 10h12"/></svg> Previous</button><span class="recall-self-check" id="study-nudge">Think first. Reveal when ready.</span><button class="button button--primary" type="button" id="next-card">Next card <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m11 5 5 5-5 5M4 10h12"/></svg></button></div>
+        <p class="recall-shortcuts" id="study-keyboard-help">When the card is focused: <kbd>Space</kbd> or <kbd>Enter</kbd> reveals the answer. <kbd>←</kbd> <kbd>→</kbd> moves between cards.</p>
+      </div>
+
+      <div id="complete-panel" class="recall-complete" hidden>
+        <div class="recall-complete-icon" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="m9 18 6 6 12-12"/></svg></div>
+        <p class="eyebrow">A good place to pause</p>
+        <h2 id="complete-title" tabindex="-1">You reached the last card.</h2>
+        <p id="complete-description"></p>
+        <p class="recall-complete-prompt">Keep the curiosity going.</p>
+        <div class="recall-restart-actions"><button class="button button--primary" id="study-again" type="button">Study this deck again</button><button class="button button--outline" id="shuffle-again" type="button">Shuffle &amp; study again</button></div>
+        <button class="button button--text" id="choose-another" type="button">Choose another deck <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M5 5h10v10"/></svg></button>
+        <div class="recall-complete-links"><a href="french.html">Try the French analyzer <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M5 5h10v10"/></svg></a><a href="index.html">Return home <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M5 5h10v10"/></svg></a></div>
+      </div>
+      <p id="study-announcer" class="recall-sr-only" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <section class="recall-context" aria-labelledby="recall-design-heading">
+      <div><p class="eyebrow">Behind the interface</p><h2 id="recall-design-heading">Make room<br> for the question.</h2></div>
+      <div><p>The interface keeps a single card in focus. Answers stay hidden until you ask for them, and the deck position makes it easy to see where you are.</p><p>Every deck starts in a fixed order. At the end, you can repeat it, shuffle it, switch subjects, or explore another project. There are no accounts or saved study records.</p></div>
+    </section>
+    <details class="recall-sources"><summary>Further reading behind the sample decks</summary><p>The cards are short, original study prompts. These resources offer more context.</p><ul><li><a href="https://www.filmeducation.org/resources/primary/teaching_with_film/film_in_primary_literacy/glossary_of_film_terminology/" target="_blank" rel="noopener noreferrer">Film Education: glossary of film terminology</a></li><li><a href="https://www.filmeducation.org/resources/primary/topics/sound/extension/" target="_blank" rel="noopener noreferrer">Film Education: sound in film</a></li><li><a href="https://apprendre.tv5monde.com/en" target="_blank" rel="noopener noreferrer">TV5MONDE: learning French</a></li><li><a href="https://developer.mozilla.org/en-US/curriculum/core/" target="_blank" rel="noopener noreferrer">MDN: web development fundamentals</a></li></ul></details>
+    <div class="project-next"><p>Continue exploring</p><a class="button button--text" href="french.html">The French analyzer <svg class="recall-inline-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M5 5h10v10"/></svg></a></div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span data-year>2026</span> <span data-site-name>Alexander Minagar</span></p><div class="footer-links"><a href="index.html">Home</a><a href="index.html#projects">Projects</a></div></div></footer>
+</body>
+</html>

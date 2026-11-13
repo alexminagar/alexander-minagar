@@ -1,0 +1,9 @@
+[project]
+name = "alexander-minagar-portfolio"
+version = "1.0.0"
+description = "A personal portfolio with a French grammatical analysis API."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "spacy==3.8.18",
+    "fr-core-news-md @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.8.0/fr_core_news_md-3.8.0-py3-none-any.whl",
+]
