@@ -8,9 +8,9 @@ window.SITE_CONTENT = {
     year: "",
     runtime: "",
     role: "",
-    synopsis: "The film, synopsis, and production details will be added here.",
+    synopsis: "Tufts Film and Media Studies Directed Study under Professor Howard Woolf, Fall 2026",
     credits: [],
-    videoUrl: "",
+    videoUrl: "https://youtu.be/ohA5H0gK7ns",
     poster: "assets/images/film-cover.svg",
     captionsUrl: ""
   }
