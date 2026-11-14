@@ -3,7 +3,7 @@
   if (!config) return;
   document.title = `${config.title} | ${window.SITE_CONTENT.name}`;
   document.getElementById("film-eyebrow").textContent = config.eyebrow || "01 / Film";
-  document.getElementById("film-synopsis").textContent = config.synopsis || "";
+  document.getElementById("film-synopsis")?.replaceChildren(config.synopsis || "");
   const metadata = document.getElementById("film-metadata");
   [["Year", config.year], ["Runtime", config.runtime], ["My role", config.role]].forEach(([label, value]) => {
     if (!value) return;
@@ -13,9 +13,9 @@
     term.textContent = label;
     definition.textContent = value;
     group.append(term, definition);
-    metadata.append(group);
+    metadata?.append(group);
   });
-  metadata.hidden = !metadata.children.length;
+  if (metadata) metadata.hidden = !metadata.children.length;
   if (Array.isArray(config.credits) && config.credits.length) {
     const list = document.getElementById("film-credit-list");
     config.credits.forEach(credit => {
@@ -57,7 +57,7 @@
     frame.allowFullscreen = true;
     frame.referrerPolicy = "strict-origin-when-cross-origin";
     screen.replaceChildren(frame);
-    caption.textContent = "If the embedded player is unavailable, open the film using the link below.";
+    if (caption) caption.textContent = "If the embedded player is unavailable, open the film using the link below.";
   } else if (/\.(mp4|webm|ogg)$/i.test(url.pathname)) {
     const video = document.createElement("video");
     video.controls = true;
