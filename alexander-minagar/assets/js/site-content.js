@@ -11,7 +11,7 @@ window.SITE_CONTENT = {
     synopsis: "Tufts Film and Media Studies Directed Study under Professor Howard Woolf, Fall 2026",
     credits: [],
     videoUrl: "https://youtu.be/ohA5H0gK7ns",
-    poster: "",
+    poster: "assets/images/film-cover.svg",
     captionsUrl: ""
   }
 };
